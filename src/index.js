@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+
+import './assets/css/tachyons.min.css'
 import Root from './containers/Root'
 import registerServiceWorker from './registerServiceWorker'
 
