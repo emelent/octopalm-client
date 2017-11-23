@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import createHistory from 'history/createBrowserHistory'
 import {routerReducer, routerMiddleware} from 'react-router-redux'
 
-import reducer from '../reducers'
+import reducers from '../reducers'
 import rootSaga from '../sagas'
 
 
@@ -15,7 +15,7 @@ const routeMiddleware = routerMiddleware(history)
 const configureStore = (preloadedState) => {
 	const store = createStore(
 		combineReducers({
-			...reducer,
+			reducers,
 			router: routerReducer
 		}),
 		preloadedState,
