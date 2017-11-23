@@ -1,6 +1,6 @@
 import React from 'react'
 import {compose, withProps} from 'recompose'
-import {connect} from 'react-redux'
+import ScreenType from '../../hocs/ScreenType'
 
 import BaseView from '../../components/BaseView'
 
@@ -11,13 +11,9 @@ const Component = () => (
 	</div>
 )
 
-const mapStateToProps = state => ({
-	screenType: state.ui.screenType
-})
-
 const enhance = compose(
 	withProps({Component}),
-	connect(mapStateToProps)
+	ScreenType
 )
 
 export default enhance(BaseView)

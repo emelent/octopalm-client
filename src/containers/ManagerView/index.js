@@ -1,26 +1,22 @@
 import React from 'react'
 import {compose, withProps} from 'recompose'
-import {connect} from 'react-redux'
+import ScreenType from '../../hocs/ScreenType'
 
 import BaseView from '../../components/BaseView'
-import TitleBar from '../../components/TitleBar'
+import ManagerSideBar from '../../components/ManagerSideBar'
+import ManagerSideView from '../../components/ManagerSideView'
+
 
 const ManagerView = ({screenType}) => (
 	<div className="athelas">
-		<TitleBar
-			title="Manager View"
-			screenType={screenType}
-		/>
+		<ManagerSideView screenType={screenType} />
+		<ManagerSideBar screenType={screenType}/>
 	</div>
 )
 
-const mapStateToProps = state => ({
-	screenType: state.ui.screenType
-})
-
 const enhance = compose(
 	withProps({Component: ManagerView}),
-	connect(mapStateToProps)
+	ScreenType
 )
 
 export default enhance(BaseView)

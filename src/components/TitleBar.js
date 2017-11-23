@@ -1,5 +1,4 @@
 import React from 'react'
-import {withProps} from 'recompose'
 
 import {dimensions, fontSizes} from '../constants'
 
@@ -10,8 +9,12 @@ const style = {
 	}
 }
 
-const TitleBar = ({title, height, fontSize}) => (
-	<div style={{...style.container, height, fontSize}}>
+const TitleBar = ({screenType, title}) => (
+	<div className="TBar" style={{
+		...style.container,
+		height:height(screenType),
+		fontSize:fontSizes[`medium${screenType}`] }}
+	>
 		{title}
 	</div>
 )
@@ -21,9 +24,5 @@ const height = screenType => (
 	dimensions[`navBarHeight${screenType}`] - dimensions[`contentMargin${screenType}`]
 )
 
-const enhance = withProps(({screenType}) =>  ({
-	height: height(screenType),
-	fontSize: fontSizes[`medium${screenType}`]
-}))
 
-export default  enhance(TitleBar)
+export default  TitleBar

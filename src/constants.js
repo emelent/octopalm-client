@@ -5,9 +5,9 @@ export const dimensions = {
 	navBarHeightLG: 80,
 
 	contentMarginXS: 0,
-	contentMarginSM: 10,
-	contentMarginMD: 10,
-	contentMarginLG: 10
+	contentMarginSM: 0,
+	contentMarginMD: 0,
+	contentMarginLG: 0
 }
 
 export const fontSizes = {
