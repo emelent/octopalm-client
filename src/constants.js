@@ -1,5 +1,5 @@
 export const dimensions = {
-	navBarHeightXS: 80,
+	navBarHeightXS: 70,
 	navBarHeightSM: 80,
 	navBarHeightMD: 80,
 	navBarHeightLG: 80,
@@ -11,10 +11,10 @@ export const dimensions = {
 }
 
 export const fontSizes = {
-	smalXS: '14px',
-	smalSM: '18px',
-	smalMD: '18px',
-	smalLG: '18px',
+	smallXS: '14px',
+	smallSM: '18px',
+	smallMD: '18px',
+	smallLG: '18px',
 
 	mediumXS: '20px',
 	mediumSM: '24px',
@@ -31,6 +31,6 @@ export const colors = {
 	color1: '#fafafa',
 	color2: '#222',
 	color3: 'rgba(66, 107, 105, 1)',
-	color4: 'rgba(34, 46, 80, 1)',
+	color4: '#ffd54f',
 	color5: '#FFC107'
 }

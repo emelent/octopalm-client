@@ -1,28 +1,37 @@
 import React from 'react'
-import {dimensions} from '../constants'
+
 import ScreenType from '../hocs/ScreenType'
+import {fontSizes, colors} from '../constants'
 
 
 const styles = {
 	container:{
-		display: 'inline-block',
+		float: 'left',
 		width: '20%',
-		minHeight: '100%'
+		minHeight: '100%',
+		overflow: 'hidden',
+		textAlign: 'center'
 	},
 	day:{
-		width: '100%'
+		width: '100%',
+		height:  60,
+		lineHeight: '60px',
+		fontSize: fontSizes.smallMD,
+		textTransform: 'uppercase',
+		background: colors.color4
+	},
+	events:{
+		padding: 10
 	}
 }
 
-const height = screenType => dimensions[`navBarHeight${screenType}`]
+const dayTitle = (day, screenType) =>
+	(['MD', 'LG'].indexOf(screenType) > -1)? day : day.slice(0,3)
+
 const DayView = ({day, screenType}) => (
-	<div style={styles.container}>
-		<div style={{
-			...styles.day,
-			height: height(screenType)
-		}}
-		>
-			{day}
+	<div className="avenir" style={styles.container}>
+		<div style={styles.day}>
+			{dayTitle(day, screenType)}
 		</div>
 		<div style={styles.events}>
 			{day} events...
