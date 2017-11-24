@@ -16,7 +16,7 @@ const style = {
 }
 
 const ManagerView = ({screenType}) => (
-	<div style={style.container}className="athelas">
+	<div style={style.container}>
 		<ManagerSideBar screenType={screenType}/>
 		<ManagerSideView screenType={screenType}/>
 	</div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import TitleBar from './TitleBar'
 
+
 const styles = {
 	container:{
 		position: 'absolute',
@@ -13,11 +14,11 @@ const styles = {
 const width = screenType =>
 	(screenType === 'XS')? '80%' : 300
 	
-const SideBar = ({screenType, title, Component}) => (
+const SideBar = ({screenType, title, Component, titleBg}) => (
 	<div style={{...styles.container,
 		width: width(screenType)
 	}}>
-		<TitleBar title={title} screenType={screenType}/>
+		<TitleBar title={title} screenType={screenType} background={titleBg} />
 		<Component screenType={screenType} />
 	</div>
 )

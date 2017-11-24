@@ -1,8 +1,8 @@
 export const dimensions = {
 	navBarHeightXS: 70,
-	navBarHeightSM: 80,
-	navBarHeightMD: 80,
-	navBarHeightLG: 80,
+	navBarHeightSM: 75,
+	navBarHeightMD: 75,
+	navBarHeightLG: 75,
 
 	contentMarginXS: 0,
 	contentMarginSM: 0,
