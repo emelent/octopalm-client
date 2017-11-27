@@ -1,36 +1,29 @@
 export const dimensions = {
-	navBarHeightXS: 70,
-	navBarHeightSM: 75,
-	navBarHeightMD: 75,
-	navBarHeightLG: 75,
+	titleBarHeightXS: 60,
+	titleBarHeight: 65,
 
-	contentMarginXS: 0,
-	contentMarginSM: 0,
-	contentMarginMD: 0,
-	contentMarginLG: 0
+	navBarHeightXS: 50,
+	navBarHeight: 55
 }
 
 export const fontSizes = {
 	smallXS: '14px',
-	smallSM: '18px',
-	smallMD: '18px',
-	smallLG: '18px',
+	small: '18px',
 
 	mediumXS: '20px',
-	mediumSM: '24px',
-	mediumMD: '24px',
-	mediumLG: '24px',
+	medium: '24px',
 
 	largeXS: '28px',
-	largeSM: '32px',
-	largeMD: '32px',
-	largeLG: '32px'
+	large: '32px'
 }
 
 export const colors = {
-	color1: '#fafafa',
-	color2: '#222',
-	color3: 'rgba(66, 107, 105, 1)',
-	color4: '#ffd54f',
-	color5: '#FFC107'
+	theme: '#2b3245',
+	accent: '#22A7F0',
+	base: '#fff',
+	background: '#eee',
+	border1: '#e5e5e5',
+	border2: '#dadada',
+	textDark: '#222',
+	textLight: '#aaa'
 }
