@@ -1,45 +1,67 @@
 import React from 'react'
+import {branch, renderComponent} from 'recompose'
 
-import {dimensions, fontSizes, colors} from '../constants'
+import {dimensions, colors} from '../constants'
 import MenuIcon from './MenuIcon'
+
 
 const style = {
 	container: {
 		width: '100%',
+		height: dimensions.navBarHeight,
 		padding: 10,
-		paddingTop: 25,
-		backgroundColor: colors.color5
+		backgroundColor: colors.base
 	},
-	title:{
-		
+	items: {
+		height: '100%',
+		width: 200
+	},
+	component:{
+		height: '100%',
+		overflow: 'hidden'
 	},
 	menuIcon:{
-		float: 'right'
+		float: 'right',
+		width: 40
 	}
 }
 
-const height =  screenType => dimensions['navBarHeight' + screenType]
-const fontSize =  screenType => fontSizes['medium' + screenType]
+// normal navbar
+const NavBar = ({Component}) => (
+	<div style={style.container}>
+		<div style={style.items}>
+			Nav Items
+		</div>
+		<div style={style.component}>
+			{Component && <Component />}
+		</div>
+	</div>
+)
 
-const NavBar = ({screenType, title, burgerToggle}) => (
-	<div style={{
-		...style.container,
-		height: height(screenType)
-	}}
-	>
-		<span style={{
-			...style.title,
-			fontSize: fontSize(screenType)}}
-		>
-			{title}
-		</span>
+// mobile phone navbar
+const NavBarXS = ({Component, burgerToggle}) => (
+	<div style={style.container}>
+		<div style={style.items}>
+			Nav Items
+		</div>
+
 		{burgerToggle &&
 			<div onClick={burgerToggle} style={style.menuIcon}>
 				<MenuIcon />
 			</div>
 		}
 
+		<div style={style.component}>
+			{Component && <Component />}
+		</div>
 	</div>
 )
 
-export default NavBar
+const enhance = branch(
+	 ({screenType}) => {
+		return screenType === 'XS'
+	},
+	renderComponent(NavBarXS)
+  )
+
+export default enhance(NavBar)

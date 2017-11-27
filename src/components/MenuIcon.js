@@ -7,7 +7,7 @@ const style = {
 	},
 	bar: {
 		width: 30,
-		height: 2,
+		height: 1,
 		margin: 5,
 		backgroundColor: '#222'
 	}
