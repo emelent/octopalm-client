@@ -8,7 +8,7 @@ export const dimensions = {
 
 export const fontSizes = {
 	smallXS: '14px',
-	small: '18px',
+	small: '16px',
 
 	mediumXS: '20px',
 	medium: '24px',
@@ -25,5 +25,6 @@ export const colors = {
 	border1: '#e5e5e5',
 	border2: '#dadada',
 	textDark: '#222',
-	textLight: '#aaa'
+	textLight: '#fff',
+	textGrey: '#ddd'
 }

@@ -1,15 +1,18 @@
 import React from 'react'
 
+import {colors} from '../constants'
+
+
 const style = {
 	container:{
-		paddingTop: 5,
+		paddingTop: 18,
 		cursor: 'pointer'
 	},
 	bar: {
 		width: 30,
-		height: 1,
+		height: 2,
 		margin: 5,
-		backgroundColor: '#222'
+		backgroundColor: colors.textDark
 	}
 }
 const MenuIcon = () => (

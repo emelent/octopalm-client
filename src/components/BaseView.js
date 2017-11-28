@@ -13,7 +13,7 @@ const style = {
 }
 
 const Base = ({Component, burgerToggle, ...props}) => (
-	<div className="avenir" style={style.container}>
+	<div style={style.container}>
 		<NavBar screenType={props.screenType}
 			burgerToggle={burgerToggle}
 		/>

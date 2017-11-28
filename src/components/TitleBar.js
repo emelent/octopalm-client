@@ -1,22 +1,33 @@
 import React from 'react'
 
 import {colors, dimensions, fontSizes} from '../constants'
+import logoRes from '../assets/img/logo.svg'
 
 const style = {
 	container:{
 		width: '100%',
 		height: dimensions.titleBarHeight,
-		padding: 10,
 		backgroundColor: colors.theme,
-		lineHeight: '100px',
-		textAlign: 'center',
-		fontSizes: fontSizes.medium
+		lineHeight: dimensions.titleBarHeight + 'px',
+		fontSize: fontSizes.medium,
+		color: colors.textLight
+	},
+	logo:{
+		width: 44,
+		marginTop: 15,
+		float: 'left'
+	},
+	title:{
+		fontWeight: '200'
 	}
 }
 
-const TitleBar = ({title}) => (
+const TitleBar = ({title="The App"}) => (
 	<div style={style.container}>
-		{title}
+		<div>
+			<img src={logoRes} style={style.logo} />
+		</div>
+		<span style={style.title}>{title}</span>
 	</div>
 )
 

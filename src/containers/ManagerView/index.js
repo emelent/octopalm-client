@@ -3,6 +3,8 @@ import {compose, withProps} from 'recompose'
 import ScreenType from '../../hocs/ScreenType'
 
 import BaseView from '../../components/BaseView'
+import ManagerSideBar from '../../components/ManagerSideBar'
+import ManagerSideView from '../../components/ManagerSideView'
 
 
 const style = {
@@ -13,13 +15,17 @@ const style = {
 	}
 }
 
-const ManagerView = () => (
-	<div style={style.container} />
+const ManagerView = ({screenType}) => (
+	<div style={style.container}>
+		<ManagerSideBar screenType={screenType}/>
+		<ManagerSideView screenType={screenType}/>
+	</div>
 )
 
 const enhance = compose(
 	withProps({
 		Component: ManagerView,
+		title: "Timetable Manager",
 		burgerToggle: () => {console.log('Toggle Menu')}
 	}),
 	ScreenType

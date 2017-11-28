@@ -7,7 +7,7 @@ import ManagerView from '../containers/ManagerView'
 import TitleBar from '../components/TitleBar'
 
 const Routes = () => (
-	<div>
+	<div className="avenir">
 		<TitleBar />
 		<div>
 			<Route exact path="/" component={App}/>
