@@ -18,7 +18,7 @@ const styles = {
 		lineHeight: '60px',
 		fontSize: fontSizes.smallMD,
 		textTransform: 'uppercase',
-		background: colors.color4
+		background: colors.accent
 	},
 	events:{
 		padding: 10
