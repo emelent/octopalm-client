@@ -7,15 +7,27 @@ import ManagerSideBar from '../../components/ManagerSideBar'
 import ManagerSideView from '../../components/ManagerSideView'
 
 
+const style = {
+	container: {
+		position: 'absolute',
+		width: '100%',
+		height: '100%'
+	}
+}
+
 const ManagerView = ({screenType}) => (
-	<div className="athelas">
-		<ManagerSideView screenType={screenType} />
+	<div style={style.container}>
 		<ManagerSideBar screenType={screenType}/>
+		<ManagerSideView screenType={screenType}/>
 	</div>
 )
 
 const enhance = compose(
-	withProps({Component: ManagerView}),
+	withProps({
+		Component: ManagerView,
+		title: "Timetable Manager",
+		burgerToggle: () => {console.log('Toggle Menu')}
+	}),
 	ScreenType
 )
 

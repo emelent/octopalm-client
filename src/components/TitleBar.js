@@ -1,28 +1,34 @@
 import React from 'react'
 
-import {dimensions, fontSizes} from '../constants'
+import {colors, dimensions, fontSizes} from '../constants'
+import logoRes from '../assets/img/logo.svg'
 
 const style = {
 	container:{
 		width: '100%',
-		padding: 10
+		height: dimensions.titleBarHeight,
+		backgroundColor: colors.theme,
+		lineHeight: dimensions.titleBarHeight + 'px',
+		fontSize: fontSizes.medium,
+		color: colors.textLight
+	},
+	logo:{
+		width: 44,
+		marginTop: 15,
+		float: 'left'
+	},
+	title:{
+		fontWeight: '200'
 	}
 }
 
-const TitleBar = ({screenType, title}) => (
-	<div className="TBar" style={{
-		...style.container,
-		height:height(screenType),
-		fontSize:fontSizes[`medium${screenType}`] }}
-	>
-		{title}
+const TitleBar = ({title="The App"}) => (
+	<div style={style.container}>
+		<div>
+			<img src={logoRes} style={style.logo} />
+		</div>
+		<span style={style.title}>{title}</span>
 	</div>
 )
-
-
-const height = screenType => (
-	dimensions[`navBarHeight${screenType}`] - dimensions[`contentMargin${screenType}`]
-)
-
 
 export default  TitleBar

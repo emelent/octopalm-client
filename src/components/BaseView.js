@@ -1,40 +1,24 @@
 import React from 'react'
-import {withProps} from 'recompose'
 
-import {dimensions, colors} from '../constants'
-
+import {colors} from '../constants'
+import NavBar from './NavBar'
 
 const style = {
 	container:{
-		backgroundColor: colors.color1,
+		backgroundColor: colors.background,
 		minHeight: '100vh',
+		width: '100vw',
 		color: colors.color2
-	},
-	navBar:{
-		backgroundColor: colors.color5,
-		width: '100vw'
-	},
-	content:{
-		position: 'absolute'
-
 	}
 }
 
-const Base = ({Component, contentMargin, navBarHeight, ...props}) => (
-	<div className="athelas" style={style.container}>
-		<div style={{...style.navBar, height: navBarHeight}} />
-		<div style={{...style.content,
-			left: contentMargin, right: contentMargin,
-			top: contentMargin, bottom: contentMargin
-		}}>
-			<Component  {...props} />
-		</div>
+const Base = ({Component, burgerToggle, ...props}) => (
+	<div style={style.container}>
+		<NavBar screenType={props.screenType}
+			burgerToggle={burgerToggle}
+		/>
+		<Component  {...props} />
 	</div>
 )
 
-const enhance = withProps(({screenType}) => ({
-	contentMargin: dimensions[`contentMargin${screenType}`],
-	navBarHeight: dimensions[`navBarHeight${screenType}`]
-}))
-
-export default enhance(Base)
+export default Base
