@@ -142,6 +142,7 @@ module.exports = {
 					/\.gif$/,
 					/\.jpe?g$/,
 					/\.png$/
+					// /\.scss$/
 				],
 				loader: require.resolve('file-loader'),
 				options: {
@@ -209,6 +210,15 @@ module.exports = {
 			}
 			// ** STOP ** Are you adding a new loader?
 			// Remember to add the new extension(s) to the "file" loader exclusion list.
+			// {
+			// 	test: /\.scss$/,
+			// 	include: paths.appSrc,
+			// 	loaders: [
+			// 		require.resolve('style-loader'),
+			// 		require.resolve('css-loader'),
+			// 		require.resolve('sass-loader')
+			// 	]
+			// }
 		]
 	},
 	plugins: [
