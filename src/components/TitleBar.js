@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {colors, dimensions, fontSizes} from '../constants'
-import logoRes from '../assets/img/logo.svg'
+import logoRes from '../img/logo.svg'
 
 const style = {
 	container:{
