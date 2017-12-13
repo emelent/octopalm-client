@@ -1,0 +1,31 @@
+$height: 70px;
+._toolbar-item{
+	padding: 0px 5px;
+	line-height: $height;
+}
+
+.-toolbar{
+	background: lime;
+	height: $height;
+	width: 100%;
+	border: 1px solid #ccc;
+}
+
+.-toolbar-left{
+	@extend ._toolbar-item;
+	float: left;
+	background: crimson;
+}
+
+.-toolbar-right{
+	@extend ._toolbar-item;
+	float: right;
+	background: blueviolet;
+}
+
+.-toolbar-icon{
+	@extend ._toolbar-item;
+	float: left;
+	width: 50px;
+	margin: 0 5px;
+}
