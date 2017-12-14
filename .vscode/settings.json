@@ -2,5 +2,6 @@
 	"emmet.includeLanguages": {
 		"javascript":"javascriptreact"
 	},
-	"javascript.validate.enable": false
+	"javascript.validate.enable": false,
+	"jest.pathToConfig": "config/polyfills.js"
 }

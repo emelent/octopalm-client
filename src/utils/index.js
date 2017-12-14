@@ -5,4 +5,7 @@ export const getScreenType = ({width}) => {
 	return 'LG'
 }
 
+export const pickRandom = arr => arr[randomNatural(arr.length)]
+export const randomNatural = max => Math.floor(Math.random() * max)
+export const randomInteger = (min, max) => Math.floor(Math.random() * (max - min)) + min
 export const action = (type, payload) => ({type, payload})
