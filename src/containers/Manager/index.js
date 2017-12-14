@@ -1,9 +1,9 @@
 import React from 'react'
 import {withState} from 'recompose'
-
 import ToolBar from '../../components/ToolBar'
 import Icon from '../../components/Icon'
 import Button from '../../components/Button'
+import MonFriView from '../../components/MonFriView'
 
 
 const RightSide = () => (
@@ -46,6 +46,7 @@ const Manager = ({edit, setEdit}) => (
 		{console.log('edit:', edit)}
 		<EditToolBar onClose={() => setEdit(false)} active={edit}/>
 		<MainToolBar id="main" onClick={() => setEdit(true)}/>
+		<MonFriView />
 	</div>
 )
 
