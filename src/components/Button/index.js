@@ -4,12 +4,12 @@ import cn from 'classnames'
 import './style.scss'
 
 
-const Button = ({title, ...props}) => (
+const Button = ({title, children, ...props}) => (
 	<button {...props}
 		className={
 			cn('button v-mid', props.className)
 		}
-	>{title}</button>
+	>{title || children}</button>
 )
 
 export default Button
