@@ -1,12 +1,13 @@
-$height: 70px;
+$height: 60px;
 ._toolbar-item{
-	padding: 0px 5px;
 	line-height: $height;
 }
 
 .-toolbar{
 	height: $height;
 	width: 100%;
+	padding: 0 2px;
+	border-bottom: 1px solid #eee;
 }
 
 .-toolbar-left{
@@ -22,7 +23,7 @@ $height: 70px;
 .-toolbar-icon{
 	@extend ._toolbar-item;
 	float: left;
-	width: 50px;
+	width: 40px;
 	margin-right: 0px;
 	font-size: 2em;
 }
