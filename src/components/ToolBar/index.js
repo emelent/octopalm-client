@@ -8,19 +8,19 @@ const ToolBar = ({style, Icon, onIconClick, Left, Right}) => (
 		{Icon &&
 			<div onClick={onIconClick}
 				className="-toolbar-icon">
-				<Icon />
+				{Icon}
 			</div>
 		}
 
 		{Left &&
 			<div className="-toolbar-left">
-				<Left/>
+				{Left}
 			</div>
 		}
 
 		{Right &&
 			<div className="-toolbar-right">
-				<Right/>
+				{Right}
 			</div>
 		}
 	</div>
