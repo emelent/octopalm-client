@@ -7,7 +7,6 @@ $height: 70px;
 .-toolbar{
 	height: $height;
 	width: 100%;
-	border: 1px solid #ccc;
 }
 
 .-toolbar-left{
@@ -24,5 +23,6 @@ $height: 70px;
 	@extend ._toolbar-item;
 	float: left;
 	width: 50px;
-	margin: 0 5px;
+	margin-right: 0px;
+	font-size: 2em;
 }
