@@ -1,10 +1,13 @@
 
 import React from 'react'
+import cn from 'classnames'
+
+
 import './style.scss'
 
 
-const ToolBar = ({style, Icon, onIconClick, Left, Right}) => (
-	<div style={style} className="-toolbar">
+const ToolBar = ({Icon, onIconClick, Left, Right, className, ...props}) => (
+	<div {...props} className={cn('-toolbar', className)}>
 		{Icon &&
 			<div onClick={onIconClick}
 				className="-toolbar-icon">
