@@ -5,7 +5,6 @@ import ToolBar from '../../components/ToolBar'
 import Icon from '../../components/Icon'
 import Button from '../../components/Button'
 import MonFriView from '../../components/MonFriView'
-import PillScroller from '../../components/PillScroller'
 import OptsMenu from '../../components/OptsMenu'
 
 const options = [
@@ -61,7 +60,6 @@ const Manager = ({edit, setEdit, tableSelect, setTableSelect}) => (
 		<EditToolBar onClose={() => setEdit(false)} active={edit}/>
 		<MainToolBar id="main" onTableClick={() => setTableSelect(true)}/>
 		<MonFriView onClick={() => setEdit(true)}/>
-		<PillScroller className="fixed bottom-0"/>
 		<OptsMenu options={options} title="Select Timetable"
 			className={cn({'dn': !tableSelect})}
 			onClose={() => setTableSelect(false)}
