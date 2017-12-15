@@ -1,0 +1,26 @@
+$height: 50px;
+
+.-pill-scroller{
+	display: grid;
+	grid-template-columns: 40px auto 40px;
+	justify-items: center;
+	align-items: center;
+	background: #fff;
+	height: $height;
+	width: 100%;
+}
+
+.-pill-container{
+	padding: 0 10px;
+	overflow: scroll;
+}
+
+.-pills{
+	min-width: 2200%;
+}
+.-pill{
+	color: #fff;
+	border-radius: 20px;
+	padding: 5px 10px;
+	margin: 0 5px;
+}

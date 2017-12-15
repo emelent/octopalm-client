@@ -70,6 +70,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint:fix": "eslint src/ --fix",
+	"test:coverage": "jest --coverage",
     "lint": "eslint src/"
   },
   "jest": {
