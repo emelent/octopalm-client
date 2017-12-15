@@ -9,7 +9,7 @@ $time-col-width: 55px;
 .-monfri-grid{
 	display: grid;
 	position: relative;
-	top: calc(var(--height) - 2px);
+	top: calc(var(--height) - 6px);
 	height: calc(100% - var(--height));
 	width: 100%;
 	grid-template-columns: $time-col-width repeat(5, 1fr);
@@ -28,7 +28,7 @@ $time-col-width: 55px;
 	align-items: center;
 	text-transform: uppercase;
 	color: #fff;
-	background: #ed6897;
+	background: var(--color-accent);
 }
 
 .-col-title{
