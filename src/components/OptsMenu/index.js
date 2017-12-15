@@ -10,7 +10,7 @@ const renderOptions = opts => opts.map(
 		>{opt}</div>
 	)
 )
-const OptsMenu = ({title, onClose, options, className, ...props}) => (
+const OptsMenu = ({title, onClose, options=[], className, ...props}) => (
 	<div {...props} className={cn('tc fixed absolute--fill bg-white', className)}>
 		<div className="-opts-title f3">{title}</div>
 		<div className="-opts-container overflow-scroll">
