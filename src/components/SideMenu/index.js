@@ -1,6 +1,5 @@
 import React from 'react'
 import cn from 'classnames'
-import './style.scss'
 
 
 const SideMenu = ({active, className, children,...props}) => (
