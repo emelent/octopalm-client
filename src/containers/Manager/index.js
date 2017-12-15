@@ -68,7 +68,7 @@ const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideM
 			className={cn({'dn': !tableSelect})}
 			onClose={() => setTableSelect(false)}
 		/>
-		<SideMenu active={sideMenu}>
+		<SideMenu onClose={() => setSideMenu(false)} active={sideMenu}>
 			<div className="-side-bar-title">
 				<Icon onClick={() => setSideMenu(false)}
 					className="-em2 tc"
@@ -89,7 +89,7 @@ const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideM
 )
 
 const enhance = compose(
-	withState('sideMenu', 'setSideMenu', true),
+	withState('sideMenu', 'setSideMenu', false),
 	withState('tableSelect', 'setTableSelect', false),
 	withState('edit', 'setEdit', false),
 )
