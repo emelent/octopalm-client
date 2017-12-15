@@ -1,15 +1,21 @@
 import React from 'react'
 import cn from 'classnames'
 
+const style = (active, left) => (left?
+	{left: active? 0: '-100%'}:
+	{right: active? 0: '-100%'}
+)
 
-const SideMenu = ({active, onClose, className, children,...props}) => (
+
+
+const SideMenu = ({left=false, active, onClose, className, children,...props}) => (
 	<div {...props}
-		style={{right: active? 0: '-200%'}}
-		className={cn('vh-100 w-80 bg-white fixed z-2 top-0 right-0 -transition-ea', className)}
+		style={style(active, left)}
+		className={cn('vh-100 w-80 bg-white fixed z-2 top-0 -transition-ea', className)}
 	>
 		{children}
-		<div className="-bg-darken w-20 h-100 fixed left-0 top-0 -transition-ea"
-			style={{left: active? 0: '-100%'}}
+		<div className="-overlay -bg-darken w-20 h-100 fixed top-0 -transition-ea"
+			style={style(active, !left)}
 			onClick={onClose}
 		/>
 	</div>
