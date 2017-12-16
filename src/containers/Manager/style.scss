@@ -1,0 +1,8 @@
+.-side-bar-title{
+	display: grid;
+	grid-template-columns: 40px auto;
+	align-items: center;
+	height: 80px;
+	color: #fff;
+	background: var(--color-accent);
+}

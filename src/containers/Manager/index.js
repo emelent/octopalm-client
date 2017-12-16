@@ -5,8 +5,9 @@ import ToolBar from '../../components/ToolBar'
 import Icon from '../../components/Icon'
 import Button from '../../components/Button'
 import MonFriView from '../../components/MonFriView'
-import PillScroller from '../../components/PillScroller'
 import OptsMenu from '../../components/OptsMenu'
+import SideMenu from '../../components/SideMenu'
+import './style.scss'
 
 const options = [
 	'Table S1',
@@ -15,10 +16,9 @@ const options = [
 	'Freshman'
 ]
 
-const RightSide = () => (
+const RightSide = ({onMenuClick}) => (
 	<div>
-		
-		<Icon name="mdi mdi-menu -em2" />
+		<Icon onClick={onMenuClick} name="mdi mdi-menu -em2" />
 	</div>
 )
 
@@ -38,11 +38,11 @@ const EditRight = () => (
 		<Icon name="mdi mdi-check -em2 mh2 gray" />
 	</div>
 )
-const MainToolBar = ({onTableClick, ...props}) => (
+const MainToolBar = ({onTableClick, onMenuClick, ...props}) => (
 	<ToolBar
 		{...props}
 		Icon={<Icon name="mdi mdi-arrow-left gray" />}
-		Right={<RightSide/>}
+		Right={<RightSide onMenuClick={onMenuClick} />}
 		Left={<LeftSide onTableClick={onTableClick}/>}
 	/>
 )
@@ -56,22 +56,41 @@ const EditToolBar = ({active, onClose}) => (
 	/>
 )
 
-const Manager = ({edit, setEdit, tableSelect, setTableSelect}) => (
+const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideMenu}) => (
 	<div>
 		<EditToolBar onClose={() => setEdit(false)} active={edit}/>
-		<MainToolBar id="main" onTableClick={() => setTableSelect(true)}/>
+		<MainToolBar id="main"
+			onTableClick={() => setTableSelect(true)}
+			onMenuClick={() => setSideMenu(true)}
+		/>
 		<MonFriView onClick={() => setEdit(true)}/>
-		<PillScroller className="fixed bottom-0"/>
 		<OptsMenu options={options} title="Select Timetable"
 			className={cn({'dn': !tableSelect})}
 			onClose={() => setTableSelect(false)}
 		/>
+		<SideMenu onClose={() => setSideMenu(false)} active={sideMenu}>
+			<div className="-side-bar-title">
+				<Icon onClick={() => setSideMenu(false)}
+					className="-em2 tc"
+					name="mdi mdi-close"
+				/>
+				<span className="dib f3">Modules</span>
+			</div>
+			<div className="ph2 f4">
+				<div>Item 1</div>
+				<div>Item 2</div>
+				<div>Item 3</div>
+				<div>Item 4</div>
+				<div>Item 5</div>
+				<div>Item 6</div>
+			</div>
+		</SideMenu>
 	</div>
 )
 
 const enhance = compose(
+	withState('sideMenu', 'setSideMenu', false),
 	withState('tableSelect', 'setTableSelect', false),
 	withState('edit', 'setEdit', false),
-	// withState('sideMenu', 'setSetMenu', false)
 )
 export default enhance(Manager)

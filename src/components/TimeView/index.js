@@ -5,7 +5,7 @@ import './style.scss'
 const start = 6
 const end = 22
 
-const times = Array(...{length: end - start})
+const times = Array.apply(null, {length: end - start})
 	.map((_, i) => (
 		((start + i) > 9)? `${start + i}:00`:`0${start + i}:00`
 	))
