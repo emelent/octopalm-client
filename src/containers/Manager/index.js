@@ -7,6 +7,7 @@ import Button from '../../components/Button'
 import MonFriView from '../../components/MonFriView'
 import OptsMenu from '../../components/OptsMenu'
 import SideMenu from '../../components/SideMenu'
+import ModuleAccordion from '../../components/ModuleAccordion'
 import './style.scss'
 
 const options = [
@@ -76,20 +77,13 @@ const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideM
 				/>
 				<span className="dib f3">Modules</span>
 			</div>
-			<div className="ph2 f4">
-				<div>Item 1</div>
-				<div>Item 2</div>
-				<div>Item 3</div>
-				<div>Item 4</div>
-				<div>Item 5</div>
-				<div>Item 6</div>
-			</div>
+			<ModuleAccordion />
 		</SideMenu>
 	</div>
 )
 
 const enhance = compose(
-	withState('sideMenu', 'setSideMenu', false),
+	withState('sideMenu', 'setSideMenu', true),
 	withState('tableSelect', 'setTableSelect', false),
 	withState('edit', 'setEdit', false),
 )
