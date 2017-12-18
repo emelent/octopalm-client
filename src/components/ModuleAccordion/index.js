@@ -98,7 +98,6 @@ const ModuleAccordion = ({setActiveModule, activeModule, className, ...props}) =
 	<div {...props}
 		className={cn('-mod-accordion', className)}
 	>
-	{console.log('activeModule =>', activeModule)}
 		{renderList(setActiveModule, activeModule)}
 	</div>
 )
