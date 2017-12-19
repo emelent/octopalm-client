@@ -1,0 +1,14 @@
+
+.-mod-accordion{
+	height: 100%;
+	overflow: scroll;
+}
+.-mod-container{
+	overflow: hidden;
+	transition: 0.3s height ease;
+}
+
+.-mod-title{
+	height: 40px;
+	line-height: 40px;
+}

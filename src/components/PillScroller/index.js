@@ -2,13 +2,9 @@ import React from 'react'
 import cn from 'classnames'
 import {pickRandom} from '../../utils'
 import Icon from '../Icon'
+import {colors} from '../../constants'
 import './style.scss'
 
-const colors = [
-	'#673ab7', '#cddc39', '#009688', '#2196f3',
-	'#607d8b', '#795548', '#ffc107', '#ff5722',
-	'#00bcd4', '#3f51b5', '#9c27b0', '#9e9e9e'
-]
 const mods = [
 	{name: 'COS 132', color: pickRandom(colors)},
 	{name: 'COS 115', color: pickRandom(colors)},
