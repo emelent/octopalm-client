@@ -1,6 +1,6 @@
 import actions, {types} from '../timetable'
 
-describe('Action creators return the right actions', () => {
+describe('Timetable action creators return the right actions', () => {
 	it('works for fetchTimetable()', () => {
 		const action = actions.fetchTimetable()
 		expect(action).toEqual({
