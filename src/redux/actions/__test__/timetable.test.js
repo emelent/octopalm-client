@@ -15,7 +15,7 @@ describe('Timetable action creators return the right actions', () => {
 		})
 	})	 
 
-	it('works for resoveTimetable()', () => {
+	it('works for resolveTimetable()', () => {
 		const action = actions.resolveTimetable()
 		expect(action).toEqual({
 			type: types.RESOLVE_TIMETABLE_REQ
