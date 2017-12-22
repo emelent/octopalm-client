@@ -7,11 +7,6 @@ export const types = arr2Obj([
 	'FETCH_TIMETABLE_SUCCESS',
 	'FETCH_TIMETABLE_FAIL',
 
-	// resolve timetable action types
-	'RESOLVE_TIMETABLE_REQ',
-	'RESOLVE_TIMETABLE_SUCCESS',
-	'RESOLVE_TIMETABLE_FAIL',
-
 	// clear timetable state errors
 	'CLEAR_TIMETABLE_ERROR'
 ])
@@ -22,8 +17,5 @@ export default {
 	}),
 	clearTimetableError: () => ({
 		type: types.CLEAR_TIMETABLE_ERROR
-	}),
-	resolveTimetable: () => ({
-		type: types.RESOLVE_TIMETABLE_REQ
 	})
 }
