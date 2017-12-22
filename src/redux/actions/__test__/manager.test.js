@@ -85,9 +85,11 @@ describe('Manager action creators return the right actions', () => {
 		})
 	})
 	it('works for loadTimetable()', () => {
-		const action = actions.loadTimetable()
+		const timetable = {_id: 'table'}
+		const action = actions.loadTimetable(timetable)
 		expect(action).toEqual({
-			type: types.LOAD_TIMETABLE
+			type: types.LOAD_TIMETABLE,
+			payload: timetable
 		})
 	})
 	it('works for commitActions()', () => {
