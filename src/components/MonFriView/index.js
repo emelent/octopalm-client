@@ -25,15 +25,18 @@ const dayViewTitles = days.map(
 
 const getDayEvents = timetable => timetable.events.reduce(
 	(dayEvents, event) => {
-		dayEvents[event.day] = [...dayEvents[event.day], event]
+		if (dayEvents[event.day])
+			dayEvents[event.day] = [...dayEvents[event.day], event]
+		else dayEvents[event.day] = [event]
 		return dayEvents
-	}
+	}, {}
 )
 
 const MonFriView = ({className, timetable, ...props}) => (
 	<div {...props}
 		className={cn('-monfri-view', className)}
 	>
+	{console.log(getDayEvents(timetable))}
 		<div className="-title-row">
 			<div>Time</div>
 			{dayViewTitles}
