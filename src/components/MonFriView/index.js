@@ -5,16 +5,16 @@ import TimeView from '../TimeView'
 import './style.scss'
 
 const days = [
-	'Monday',
-	'Tuesday',
-	'Wednesday',
-	'Thursday',
-	'Friday'
+	'MONDAY',
+	'TUESDAY',
+	'WEDNESDAY',
+	'THURSDAY',
+	'FRIDAY'
 ]
 
-const dayViewComponents = days.map(
+const dayViewComponents = dayEvents => days.map(
 		day => (
-		<DayView day={day} key={day}/>
+		<DayView day={dayEvents[day]} key={day}/>
 	))
 
 const dayViewTitles = days.map(
@@ -23,7 +23,14 @@ const dayViewTitles = days.map(
 	)
 )
 
-const MonFriView = ({className,...props}) => (
+const getDayEvents = timetable => timetable.events.reduce(
+	(dayEvents, event) => {
+		dayEvents[event.day] = [...dayEvents[event.day], event]
+		return dayEvents
+	}
+)
+
+const MonFriView = ({className, timetable, ...props}) => (
 	<div {...props}
 		className={cn('-monfri-view', className)}
 	>
@@ -33,7 +40,7 @@ const MonFriView = ({className,...props}) => (
 		</div>
 		<div className="-monfri-grid">
 			<TimeView/>
-			{dayViewComponents}
+			{dayViewComponents(getDayEvents(timetable))}
 		</div>
 	</div>
 )
