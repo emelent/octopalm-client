@@ -87,7 +87,7 @@ const events = [
 	}
 ]
 
-const resolvedTimetable = {
+export const resolvedTimetable = {
 	_id: "5a0d64357a94999e0d9156ba",
 	name: "Egyptian Pound e-business",
 	author_id: "5a0d64357a94999e0d9156aa",
@@ -244,6 +244,7 @@ export const fetchUsers = () => Promise.resolve(users)
 export const fetchUser = () => Promise.resolve(pickRandom(users))
 export const fetchUserTimetables =  user => Promise.resolve(findByProp(timetables, '_id', user))
 
+export const fetchResolvedTimetable = () => Promise.resolve(resolvedTimetable)
 export const fetchTimetable = () => Promise.resolve(timetables[0])
 export const fetchResolvedEvents = () => fetchEvents()
 export const fetchResolvedModules = () => fetchModules()
