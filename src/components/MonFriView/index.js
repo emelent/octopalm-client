@@ -34,19 +34,34 @@ const getDayEvents = timetable => timetable.events?
 		}, {}
 	): null
 
-const MonFriView = ({className, timetable, ...props}) => (
-	<div {...props}
-		className={cn('-monfri-view', className)}
-	>
-	{console.log(getDayEvents(timetable))}
+const WithTimetable = ({timetable}) => (
+	<div className="-with-timetable">
 		<div className="-title-row">
-			<div>Time</div>
-			{dayViewTitles}
+				<div>Time</div>
+				{dayViewTitles}
 		</div>
 		<div className="-monfri-grid">
 			<TimeView/>
 			{dayViewComponents(getDayEvents(timetable))}
 		</div>
+	</div>
+)
+const WithoutTimetable = () => (
+	<div className="mt7 tc f3 gray -without-timetable">
+		<span className="mdi mdi-plus-box-outline f2"/><br/>
+		Create a new timetable.
+	</div>
+)
+
+const MonFriView = ({className, timetable, ...props}) => (
+	<div {...props}
+		className={cn('-monfri-view', className)}
+	>
+	{timetable?
+		<WithTimetable timetable={timetable} />
+		:
+		<WithoutTimetable/>
+	}
 	</div>
 )
 
