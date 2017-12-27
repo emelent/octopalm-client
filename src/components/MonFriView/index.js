@@ -12,10 +12,11 @@ const days = [
 	'FRIDAY'
 ]
 
-const dayViewComponents = dayEvents => days.map(
+const dayViewComponents = dayEvents => dayEvents?
+	days.map(
 		day => (
 		<DayView day={dayEvents[day]} key={day}/>
-	))
+	)): null
 
 const dayViewTitles = days.map(
 	day => (
@@ -23,14 +24,15 @@ const dayViewTitles = days.map(
 	)
 )
 
-const getDayEvents = timetable => timetable.events.reduce(
-	(dayEvents, event) => {
-		if (dayEvents[event.day])
-			dayEvents[event.day] = [...dayEvents[event.day], event]
-		else dayEvents[event.day] = [event]
-		return dayEvents
-	}, {}
-)
+const getDayEvents = timetable => timetable.events?
+	timetable.events.reduce(
+		(dayEvents, event) => {
+			if (dayEvents[event.day])
+				dayEvents[event.day] = [...dayEvents[event.day], event]
+			else dayEvents[event.day] = [event]
+			return dayEvents
+		}, {}
+	): null
 
 const MonFriView = ({className, timetable, ...props}) => (
 	<div {...props}
