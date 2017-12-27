@@ -4,7 +4,7 @@ import {types} from '../actions/timetable'
 export const initialState = {
 	loading: false,
 	error: null,
-	timetable: {}
+	timetable: null
 }
 
 export default function(state=initialState, {type, payload}) {
