@@ -1,8 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 import {withState, compose, lifecycle} from 'recompose'
 import cn from 'classnames'
+import './style.scss'
 import ToolBar from '../../components/ToolBar'
 import Icon from '../../components/Icon'
 import Button from '../../components/Button'
@@ -11,10 +10,10 @@ import OptsMenu from '../../components/OptsMenu'
 import SideMenu from '../../components/SideMenu'
 import ModuleAccordion from '../../components/ModuleAccordion'
 // import actions from '../../redux/actions/manager'
-import timetableActions from '../../redux/actions/timetable'
 // import {resolvedTimetable} from '../../api/dummy'
 // import {Action} from '../../utils'
-import './style.scss'
+import {TimetableDispatch, TimetableState} from '../Timetable'
+
 
 
 const options = [
@@ -64,15 +63,22 @@ const EditToolBar = ({active, onClose}) => (
 	/>
 )
 
-const Manager = ({mook, edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideMenu, timetable}) => (
+const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideMenu}) => (
 	<div>
 		<EditToolBar onClose={() => setEdit(false)} active={edit}/>
-		<MainToolBar id="main"
-			onTableClick={() => setTableSelect(true)}
-			onMenuClick={() => setSideMenu(true)}
-			backClick={mook}
+		<TimetableDispatch
+			render={({fetchTimetable}) => (
+				<MainToolBar id="main"
+					onTableClick={() => setTableSelect(true) || fetchTimetable()}
+					onMenuClick={() => setSideMenu(true)}
+				/>
+			)}
 		/>
-		<MonFriView onClick={() => setEdit(true)} timetable={timetable}/>
+		<TimetableState
+			render={({timetable}) => (
+				<MonFriView onClick={() => setEdit(true)} timetable={timetable}/>
+			)}
+		/>
 		<OptsMenu options={options} title="Select Timetable"
 			className={cn({'dn': !tableSelect})}
 			onClose={() => setTableSelect(false)}
@@ -90,23 +96,16 @@ const Manager = ({mook, edit, setEdit, tableSelect, setTableSelect, sideMenu, se
 	</div>
 )
 
-const mapStateToProps = state => ({
-	timetable: state.timetable.timetable
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-	mook: timetableActions.fetchTimetable
-}, dispatch)
 
 const enhance = compose(
 	withState('sideMenu', 'setSideMenu', false),
 	withState('tableSelect', 'setTableSelect', false),
 	withState('edit', 'setEdit', false),
-	connect(mapStateToProps, mapDispatchToProps),
-	lifecycle({
-		componentDidMount(){
-			// this.props.mook()
-		}
-	})
+	// connect(mapStateToProps, mapDispatchToProps),
+	// lifecycle({
+	// 	componentDidMount(){
+	// 		this.props.mook()
+	// 	}
+	// })
 )
 export default enhance(Manager)
