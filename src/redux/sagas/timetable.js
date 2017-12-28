@@ -3,11 +3,11 @@ import {types} from '../actions/timetable'
 import {Action} from '../../utils'
 import { fetchResolvedTimetable } from '../../api/dummy'
 
-export function* fetchTimetableWatcher(resolver=fetchResolvedTimetable){
+export function* fetchTimetableFlow(){
 	while (true){
 		yield take(types.FETCH_TIMETABLE_REQ)
 		try {
-			const timetable = yield call(resolver)
+			const timetable = yield call(fetchResolvedTimetable)
 			yield put(Action(
 				types.FETCH_TIMETABLE_SUCCESS,
 				timetable
