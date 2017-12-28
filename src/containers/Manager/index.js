@@ -1,6 +1,7 @@
 import React from 'react'
-import {withState, compose} from 'recompose'
+import {withState, compose, lifecycle} from 'recompose'
 import cn from 'classnames'
+import './style.scss'
 import ToolBar from '../../components/ToolBar'
 import Icon from '../../components/Icon'
 import Button from '../../components/Button'
@@ -8,7 +9,12 @@ import MonFriView from '../../components/MonFriView'
 import OptsMenu from '../../components/OptsMenu'
 import SideMenu from '../../components/SideMenu'
 import ModuleAccordion from '../../components/ModuleAccordion'
-import './style.scss'
+// import actions from '../../redux/actions/manager'
+// import {resolvedTimetable} from '../../api/dummy'
+// import {Action} from '../../utils'
+import {TimetableDispatch, TimetableState} from '../Timetable'
+
+
 
 const options = [
 	'Table S1',
@@ -39,10 +45,10 @@ const EditRight = () => (
 		<Icon name="mdi mdi-check -em2 mh2 gray" />
 	</div>
 )
-const MainToolBar = ({onTableClick, onMenuClick, ...props}) => (
+const MainToolBar = ({backClick, onTableClick, onMenuClick, ...props}) => (
 	<ToolBar
 		{...props}
-		Icon={<Icon name="mdi mdi-arrow-left gray" />}
+		Icon={<Icon name="mdi mdi-arrow-left gray" onClick={backClick}/>}
 		Right={<RightSide onMenuClick={onMenuClick} />}
 		Left={<LeftSide onTableClick={onTableClick}/>}
 	/>
@@ -60,11 +66,19 @@ const EditToolBar = ({active, onClose}) => (
 const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideMenu}) => (
 	<div>
 		<EditToolBar onClose={() => setEdit(false)} active={edit}/>
-		<MainToolBar id="main"
-			onTableClick={() => setTableSelect(true)}
-			onMenuClick={() => setSideMenu(true)}
+		<TimetableDispatch
+			render={({fetchTimetable}) => (
+				<MainToolBar id="main"
+					onTableClick={() => setTableSelect(true) || fetchTimetable()}
+					onMenuClick={() => setSideMenu(true)}
+				/>
+			)}
 		/>
-		<MonFriView onClick={() => setEdit(true)}/>
+		<TimetableState
+			render={({timetable}) => (
+				<MonFriView onClick={() => setEdit(true)} timetable={timetable}/>
+			)}
+		/>
 		<OptsMenu options={options} title="Select Timetable"
 			className={cn({'dn': !tableSelect})}
 			onClose={() => setTableSelect(false)}
@@ -82,9 +96,16 @@ const Manager = ({edit, setEdit, tableSelect, setTableSelect, sideMenu, setSideM
 	</div>
 )
 
+
 const enhance = compose(
-	withState('sideMenu', 'setSideMenu', true),
+	withState('sideMenu', 'setSideMenu', false),
 	withState('tableSelect', 'setTableSelect', false),
 	withState('edit', 'setEdit', false),
+	// connect(mapStateToProps, mapDispatchToProps),
+	// lifecycle({
+	// 	componentDidMount(){
+	// 		this.props.mook()
+	// 	}
+	// })
 )
 export default enhance(Manager)

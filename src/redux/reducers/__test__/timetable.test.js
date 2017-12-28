@@ -35,38 +35,7 @@ describe('Timetable Reducer', () => {
 		})
 	})
 
-
-	it('can send a resolve timetable req', () => {
-		const action = Action(types.RESOLVE_TIMETABLE_REQ)
-		expect(reducer(initialState, action)).toEqual({
-			...initialState,
-			loading: true
-		})
-	})
-	it('can handle a successful resolve timetable request', () => {
-		const timetable = {_id: 'resolved'}
-		const action = Action(types.RESOLVE_TIMETABLE_SUCCESS, timetable)
-		const state = {
-			...initialState,
-			loading: true
-		}
-		expect(reducer(state, action)).toEqual({
-			...initialState,
-			timetable
-		})
-	})
-	it('can handle an unsuccessful resolve timetable request', () => {
-		const action = Action(types.RESOLVE_TIMETABLE_FAIL, error)
-		const state = {
-			...initialState,
-			loading: true
-		}
-		expect(reducer(state, action)).toEqual({
-			...initialState,
-			error
-		})
-	})
-
+	
 	it('can clear a timetable error', () => {
 		const action = Action(types.CLEAR_TIMETABLE_ERROR)
 		const state = {

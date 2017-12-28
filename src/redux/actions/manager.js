@@ -76,8 +76,9 @@ export default {
 	saveTimetable: () => ({
 		type: types.SAVE_TIMETABLE_REQ
 	}),
-	loadTimetable: () => ({
-		type: types.LOAD_TIMETABLE
+	loadTimetable: timetable => ({
+		type: types.LOAD_TIMETABLE,
+		payload: timetable
 	}),
 	commitActions: () => ({
 		type: types.COMMIT_ACTIONS
