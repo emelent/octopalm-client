@@ -1,7 +1,7 @@
 //@flow
 import {delay} from 'redux-saga'
 import {all, call, takeEvery, put, take} from 'redux-saga/effects'
-import {fetchTimetableWatcher} from './timetable'
+import {fetchTimetableFlow} from './timetable'
 
 function* mookWatcher(){
 	yield takeEvery('MOOK', function*(){
@@ -22,6 +22,6 @@ export function* dummy():Generator<any, any, any>{
 export default function* rootSaga():Generator<any, any, any>{
 	yield all([
 		mookWatcher(),
-		fetchTimetableWatcher()
+		fetchTimetableFlow()
 	])
 }
