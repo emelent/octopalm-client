@@ -1,10 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import 'tachyons'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-import Root from './containers/Root'
-import registerServiceWorker from './registerServiceWorker'
-import './index.scss'
-
-ReactDOM.render(<Root />, document.getElementById('root'))
-registerServiceWorker()
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
